@@ -1,0 +1,66 @@
+﻿{
+	"version":"Sample 1.0.01",
+	"name":"haru",
+	"model":"Live2D/haru/haru_01.moc",
+	"textures":
+	[
+		"Live2D/haru/haru_01.1024/texture_00.png",
+		"Live2D/haru/haru_01.1024/texture_01.png",
+		"Live2D/haru/haru_01.1024/texture_02.png"
+	],
+	"physics":"Live2D/haru/haru.physics.json",
+	"pose":"Live2D/haru/haru.pose.json",
+	"expressions":
+	[
+		{"name":"f01","file":"Live2D/haru/motions/expressions/f01.exp.json"},
+		{"name":"f02","file":"Live2D/haru/motions/expressions/f02.exp.json"},
+		{"name":"f03","file":"Live2D/haru/motions/expressions/f03.exp.json"},
+		{"name":"f04","file":"Live2D/haru/motions/expressions/f04.exp.json"},
+		{"name":"f05","file":"Live2D/haru/motions/expressions/f05.exp.json"},
+		{"name":"f06","file":"Live2D/haru/motions/expressions/f06.exp.json"},
+		{"name":"f07","file":"Live2D/haru/motions/expressions/f07.exp.json"},
+		{"name":"f08","file":"Live2D/haru/motions/expressions/f08.exp.json"}
+	],
+	"layout":
+	{
+		"height":2,
+		"center_x":0,
+		"center_y":0
+	},
+	"hit_areas":
+	[
+		{"name":"head", "id":"D_REF.PT_HEAD.00"},
+		{"name":"body", "id":"D_REF.PT_BODY.01"}
+	],
+	"motions":
+	{
+		"idle":
+		[
+			{"file":"Live2D/haru/motions/idle/haru_idle_01.mtn" ,"fade_in":2000, "fade_out":2000},
+			{"file":"Live2D/haru/motions/idle/haru_idle_02.mtn" ,"fade_in":2000, "fade_out":2000},
+			{"file":"Live2D/haru/motions/idle/haru_idle_03.mtn" ,"fade_in":2000, "fade_out":2000}
+		],
+		"tap_body":
+		[
+			{ "file":"Live2D/haru/motions/tap/haru_normal_02.mtn" , "sound":"Live2D/haru/sounds/tap/haru_normal_02.mp3","fade_out":0},
+			{ "file":"Live2D/haru/motions/tap/haru_normal_04.mtn" , "sound":"Live2D/haru/sounds/tap/haru_normal_04.mp3","fade_out":0},
+			{ "file":"Live2D/haru/motions/tap/haru_normal_05.mtn" , "sound":"Live2D/haru/sounds/tap/haru_normal_05.mp3","fade_out":0}
+		],
+		"pinch_in":
+		[
+			{ "file":"Live2D/haru/motions/pinch/haru_normal_07.mtn", "sound":"Live2D/haru/sounds/pinch/haru_normal_07.mp3" ,"fade_out":0}
+		],
+		"pinch_out":
+		[
+			{ "file":"Live2D/haru/motions/pinch/haru_normal_01.mtn", "sound":"Live2D/haru/sounds/pinch/haru_normal_01.mp3" ,"fade_out":0}
+		],
+		"shake":
+		[
+			{ "file":"Live2D/haru/motions/shake/haru_normal_03.mtn", "sound":"Live2D/haru/sounds/shake/haru_normal_03.mp3","fade_in":500,"fade_out":0 }
+		],
+		"flick_head":
+		[
+			{ "file":"Live2D/haru/motions/flick/haru_normal_06.mtn", "sound":"Live2D/haru/sounds/flick/haru_normal_06.mp3" ,"fade_out":0}
+		]
+	}
+}

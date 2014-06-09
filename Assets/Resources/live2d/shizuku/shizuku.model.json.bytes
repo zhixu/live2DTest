@@ -1,0 +1,73 @@
+﻿{
+	"version":"Sample 1.0.01",
+	"name":"shizuku",
+	"model":"Live2D/shizuku/shizuku.moc",
+	"textures":
+	[
+		"Live2D/shizuku/shizuku.1024/texture_00.png",
+		"Live2D/shizuku/shizuku.1024/texture_01.png",
+		"Live2D/shizuku/shizuku.1024/texture_02.png",
+		"Live2D/shizuku/shizuku.1024/texture_03.png",
+		"Live2D/shizuku/shizuku.1024/texture_04.png",
+		"Live2D/shizuku/shizuku.1024/texture_05.png"
+	],
+	"physics":"Live2D/shizuku/shizuku.physics.json",
+	"pose":"Live2D/shizuku/shizuku.pose.json",
+	"expressions":
+	[
+	 	{"name":"f01","file":"Live2D/shizuku/motions/expressions/f01.exp.json"},
+	 	{"name":"f02","file":"Live2D/shizuku/motions/expressions/f02.exp.json"},
+	 	{"name":"f03","file":"Live2D/shizuku/motions/expressions/f03.exp.json"},
+	 	{"name":"f04","file":"Live2D/shizuku/motions/expressions/f04.exp.json"}
+	],
+	"layout":
+	{
+		"height":2,
+		"center_x":0,
+		"center_y":0
+	},
+	"hit_areas":
+	[
+		{"name":"head", "id":"D_REF_FACE"},
+		{"name":"body", "id":"D_REF_BODY"}
+	],
+	"motions":
+	{
+		"idle":
+		[
+			{"file":"Live2D/shizuku/motions/idle/idl_00.mtn" ,"fade_in":2000, "fade_out":2000},
+			{"file":"Live2D/shizuku/motions/idle/idl_01.mtn" ,"fade_in":2000, "fade_out":2000},
+			{"file":"Live2D/shizuku/motions/idle/idl_02.mtn" ,"fade_in":2000, "fade_out":2000}
+		],
+		"tap_body":
+		[
+			{ "file":"Live2D/shizuku/motions/tap/tapBody01.mtn", "sound":"Live2D/shizuku/sounds/tap/tapBody01.mp3","fade_out":0 },
+			{ "file":"Live2D/shizuku/motions/tap/tapBody02.mtn", "sound":"Live2D/shizuku/sounds/tap/tapBody02.mp3","fade_out":0 },
+			{ "file":"Live2D/shizuku/motions/tap/tapBody03.mtn", "sound":"Live2D/shizuku/sounds/tap/tapBody03.mp3","fade_out":0 }
+		],
+		"pinch_in":
+		[
+			{ "file":"Live2D/shizuku/motions/pinch/pinchIn01.mtn", "sound":"Live2D/shizuku/sounds/pinch/pinchIn01.mp3" ,"fade_out":0},
+			{ "file":"Live2D/shizuku/motions/pinch/pinchIn02.mtn", "sound":"Live2D/shizuku/sounds/pinch/pinchIn02.mp3" ,"fade_out":0},
+			{ "file":"Live2D/shizuku/motions/pinch/pinchIn03.mtn", "sound":"Live2D/shizuku/sounds/pinch/pinchIn03.mp3" ,"fade_out":0}
+		],
+		"pinch_out":
+		[
+			{ "file":"Live2D/shizuku/motions/pinch/pinchOut01.mtn", "sound":"Live2D/shizuku/sounds/pinch/pinchOut01.mp3" ,"fade_out":0},
+			{ "file":"Live2D/shizuku/motions/pinch/pinchOut02.mtn", "sound":"Live2D/shizuku/sounds/pinch/pinchOut02.mp3" ,"fade_out":0},
+			{ "file":"Live2D/shizuku/motions/pinch/pinchOut03.mtn", "sound":"Live2D/shizuku/sounds/pinch/pinchOut03.mp3" ,"fade_out":0}
+		],
+		"shake":
+		[
+			{ "file":"Live2D/shizuku/motions/shake/shake01.mtn", "sound":"Live2D/shizuku/sounds/shake/shake01.mp3","fade_in":500,"fade_out":0 },
+			{ "file":"Live2D/shizuku/motions/shake/shake02.mtn", "sound":"Live2D/shizuku/sounds/shake/shake02.mp3","fade_in":500,"fade_out":0 },
+			{ "file":"Live2D/shizuku/motions/shake/shake03.mtn", "sound":"Live2D/shizuku/sounds/shake/shake03.mp3","fade_in":500,"fade_out":0 }
+		],
+		"flick_head":
+		[
+			{ "file":"Live2D/shizuku/motions/flick/flickHead01.mtn", "sound":"Live2D/shizuku/sounds/flick/flickHead01.mp3","fade_out":0 },
+			{ "file":"Live2D/shizuku/motions/flick/flickHead02.mtn", "sound":"Live2D/shizuku/sounds/flick/flickHead02.mp3","fade_out":0 },
+			{ "file":"Live2D/shizuku/motions/flick/flickHead03.mtn", "sound":"Live2D/shizuku/sounds/flick/flickHead03.mp3","fade_out":0 }
+		]
+	}
+}
