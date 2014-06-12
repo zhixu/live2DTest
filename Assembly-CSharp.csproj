@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\game\GUIQuestions.cs" />
      <Compile Include="Assets\Scripts\game\GameController.cs" />
      <Compile Include="Assets\Scripts\game\Scorekeeper.cs" />
+     <Compile Include="Assets\Scripts\game\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\sample\LAppDefine.cs" />
      <Compile Include="Assets\Scripts\sample\LAppLive2DManager.cs" />
      <Compile Include="Assets\Scripts\sample\LAppModel.cs" />
