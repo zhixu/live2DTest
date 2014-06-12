@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GUIAnswers : MonoBehaviour {
 
+	private Scorekeeper scorekeeper;
 	private GameController gc;
 
 	private string[] answers;
@@ -13,7 +14,7 @@ public class GUIAnswers : MonoBehaviour {
 	private int[] randArray;
 	// Use this for initialization
 	void Start () {
-
+		scorekeeper = this.GetComponent<Scorekeeper>();
 		gc = this.GetComponent<GameController>();
 
 		answers = new string[numberAnswers];
@@ -35,14 +36,15 @@ public class GUIAnswers : MonoBehaviour {
 
 	public void setAnswers(string correct, string[] incorrect) {
 
-		Debug.Log("setting answers");
-
 		correctAnswer = correct;
 
 		if (incorrect.Length < numberAnswers) {
 			for (int i = 0; i < incorrect.Length; i++)
 				answers[randArray[i]] = incorrect[i];
-			answers[randArray[incorrect.Length+1]] = correct;
+			answers[randArray[numberAnswers-1]] = correct;
+			shuffleRandArray();
+		} else {
+			Debug.Log("Number of answers are not matching.");
 		}
 
 	}
@@ -67,30 +69,30 @@ public class GUIAnswers : MonoBehaviour {
 
 		float left = 10.0f;
 		float top = 130.0f;
-		float width = 180.0f;
-		float height = 50.0f;
+		float width = 175.0f;
+		float height = 60.0f;
 		int answerCount = 0;
+
+		GUI.skin.button.wordWrap = true;
 
 		foreach (string answer in answers) {
 			if (GUI.Button(new Rect(left, top, width, height), answer)) {
 				
 				if (string.Equals(answer, correctAnswer)) {
-					Debug.Log("correct answer clicked");
-					gc.addPoint();
+					scorekeeper.addPoint();
 				} else {
-					Debug.Log("incorrect answer clicked");
+					scorekeeper.subtractPoint();
 				}
 				gc.updateQuestion();
 			}
 
-			top += 60;
+			top += 100;
 			answerCount++;
 
 			if (answerCount == answers.Length/2) {
-				left = 425.0f;
+				left = Screen.width - 185.0f;
 				top = 130.0f;
 			}
-
 		}
 	}
 }

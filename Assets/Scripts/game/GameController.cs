@@ -5,18 +5,17 @@ using System.Text.RegularExpressions;
 public class GameController : MonoBehaviour {
 
 	public TextAsset vocabDeck;
+	public GUIText index;
 
 	private GUIQuestions guiQuestions;
 	private GUIAnswers guiAnswers;
+	private Scorekeeper scorekeeper;
 	
 	private string[] kanji;
 	private string[] hiragana;
 	private string[] english;
 
-	private int[] randomQuestionPicker;
 	private int questionNumber;
-
-	private int currentScore = 0;
 	private int totalScore;
 
 	// Use this for initialization
@@ -24,12 +23,12 @@ public class GameController : MonoBehaviour {
 
 		guiQuestions = this.GetComponent<GUIQuestions>();
 		guiAnswers = this.GetComponent<GUIAnswers>();
+		scorekeeper = this.GetComponent<Scorekeeper>();
 		
-		//split array by comma but ignore the ones within quotation marks
-		string[] stringArray = Regex.Split(vocabDeck.text, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+		//split array by comma but ignore the ones within quotation marks; ignore carriage returns as well
+		string myVocabDeck = vocabDeck.text.Replace(System.Environment.NewLine, "");
+		string[] stringArray = Regex.Split(myVocabDeck, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 		int totalWords = stringArray.Length / 3;
-
-		Debug.Log("totalwords: " + totalWords);
 
 		kanji = new string[totalWords];
 		hiragana = new string[totalWords];
@@ -39,11 +38,13 @@ public class GameController : MonoBehaviour {
 
 		for (int i = 0; i < stringArray.Length-1; i+=3) {
 			//Debug.Log("wordCount: " + wordCount + " i " + i + " totalWords: " + totalWords + " arrayLength: " + stringArray.Length);
+
 			kanji[wordCount] 	= stringArray[i];
 			hiragana[wordCount] = stringArray[i+1];
 			english[wordCount] 	= stringArray[i+2];
 
 			wordCount++;
+
 		}
 
 		/*
@@ -52,21 +53,24 @@ public class GameController : MonoBehaviour {
 		}*/
 
 		totalScore = kanji.Length;
+		if (totalScore == 0) {
+			Debug.Log("There are no vocabulary words chosen.");
+		}
 		updateQuestion();
 	}
 
 	public void updateQuestion() {
 
-		Debug.Log("update question function");
+		if (questionNumber >= totalScore) {
+			scorekeeper.savePlayerSettings();
+			Application.LoadLevel("ending");
+		}
 
-		Debug.Log("question: " + kanji[questionNumber]);
 		guiQuestions.setQuestion(kanji[questionNumber]);
 
-		string[] incorrect = new string[guiAnswers.getNumberAnswers()];
+		string[] incorrect = new string[guiAnswers.getNumberAnswers()-1];
 		for (int i = 0; i < incorrect.Length; i++) {
 			int r = Random.Range(0, english.Length);
-			Debug.Log("INCORRECT: " + english[r]);
-
 			incorrect[i] = english[r];
 		}
 
@@ -74,13 +78,10 @@ public class GameController : MonoBehaviour {
 
 		questionNumber++;
 	}
-
-	public void addPoint() {
-		currentScore++;
-	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		index.text = "index: " + questionNumber + " of " + totalScore;
+
 	}
 }
