@@ -1,0 +1,54 @@
+{
+    "version":"Sample 1.0.01",
+    "name":"ethan",
+    "model":"Live2D/ethan/ethan.moc",
+    "textures":
+    [
+		"Live2D/ethan/ethan.1024/texture_00.png"
+    ],
+    "physics":"Live2D/ethan/physics.json",
+	"pose":"Live2D/ethan/pose.json",
+	"expressions":
+	[
+		{"name":"idle","file":"Live2D/ethan/motions/expressions/exp00.exp.json"},
+	 	{"name":"open eyes happy","file":"Live2D/ethan/motions/expressions/exp01.exp.json"},
+	 	{"name":"happy","file":"Live2D/ethan/motions/expressions/exp02.exp.json"},
+	 	{"name":"judging","file":"Live2D/ethan/motions/expressions/exp03.exp.json"},
+	 	{"name":"sad","file":"Live2D/ethan/motions/expressions/exp04.exp.json"},
+	 	{"name":"angry","file":"Live2D/ethan/motions/expressions/exp05.exp.json"}
+	],
+		"hit_areas":
+	[
+		{"name":"head", "id":"D_REF.HEAD"},
+		{"name":"body", "id":"D_REF.BODY"}
+	],
+	"layout":
+	{
+		"height":2,
+		"center_x":0,
+		"center_y":0
+	},
+	"motions":
+	{
+		"idle":
+		[
+			{"file":"Live2D/ethan/motions/motions/motion00.mtn" ,"fade_in":1000, "fade_out":1000}
+        ],
+        "happy":
+		[
+			{ "file":"Live2D/ethan/motions/motions/motion01.mtn","fade_in":1000,"fade_out":1000}
+		],
+		"judging":
+		[
+			{ "file":"Live2D/ethan/motions/motions/motion02.mtn","fade_in":1000,"fade_out":1000}
+		],
+		"angry":
+		[
+			{ "file":"Live2D/ethan/motions/motions/motion03.mtn","fade_in":1000,"fade_out":1000}
+		],
+		"grossed":
+		[
+			{ "file":"Live2D/ethan/motions/motions/motion04.mtn","fade_in":1000,"fade_out":1000}
+		]
+	}
+}
