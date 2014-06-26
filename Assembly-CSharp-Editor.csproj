@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\CreateCanvas.cs" />
      <None Include="Assets\SU3DJPFont\list.txt" />
+     <None Include="Assets\Resources\live2d\ethan\ethan.model.json.bytes.txt" />
      <None Include="Assets\SU3DJPFont\readme_jp.txt" />
      <None Include="Assets\SU3DJPFont\license.txt" />
      <None Include="Assets\SU3DJPFont\readme.txt" />

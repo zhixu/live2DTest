@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Text.RegularExpressions;
+
+namespace Controller {
 
 public class GameController : MonoBehaviour {
 
@@ -9,7 +11,7 @@ public class GameController : MonoBehaviour {
 
 	private GUIQuestions guiQuestions;
 	private GUIAnswers guiAnswers;
-	private Scorekeeper scorekeeper;
+	private EthanScorekeeper scorekeeper;
 	
 	private string[] kanji;
 	private string[] hiragana;
@@ -23,7 +25,16 @@ public class GameController : MonoBehaviour {
 
 		guiQuestions = this.GetComponent<GUIQuestions>();
 		guiAnswers = this.GetComponent<GUIAnswers>();
-		scorekeeper = this.GetComponent<Scorekeeper>();
+		scorekeeper = this.GetComponent<EthanScorekeeper>();
+		
+		/*
+		if ( this.GetComponent<EthanScorekeeper>() != null) {
+			Debug.Log("adding ethan scorekeeper");
+			scorekeeper = (EthanScorekeeper) this.GetComponent<EthanScorekeeper>();
+		} else {
+			Debug.Log("adding regular scorekeeper");
+			scorekeeper = this.GetComponent<Scorekeeper>();
+		}*/
 		
 		//split array by comma but ignore the ones within quotation marks; ignore carriage returns as well
 		string myVocabDeck = vocabDeck.text.Replace(System.Environment.NewLine, "");
@@ -37,7 +48,6 @@ public class GameController : MonoBehaviour {
 		int wordCount = 0;
 
 		for (int i = 0; i < stringArray.Length-1; i+=3) {
-			//Debug.Log("wordCount: " + wordCount + " i " + i + " totalWords: " + totalWords + " arrayLength: " + stringArray.Length);
 
 			kanji[wordCount] 	= stringArray[i];
 			hiragana[wordCount] = stringArray[i+1];
@@ -47,10 +57,7 @@ public class GameController : MonoBehaviour {
 
 		}
 
-		/*
-		for (int i = 0; i < wordCount; i++) {
-			Debug.Log("kanji: " + kanji[i] + " hiragana: " + hiragana[i] + " english: " + english[i]);
-		}*/
+		//Enumerable.Range(0, 
 
 		totalScore = kanji.Length;
 		if (totalScore == 0) {
@@ -84,4 +91,6 @@ public class GameController : MonoBehaviour {
 		index.text = "index: " + questionNumber + " of " + totalScore;
 
 	}
+}
+
 }

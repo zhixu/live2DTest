@@ -56,7 +56,10 @@
      <Compile Include="Assets\Live2D\framework\L2DPose.cs" />
      <Compile Include="Assets\Live2D\framework\L2DTargetPoint.cs" />
      <Compile Include="Assets\Live2D\framework\L2DViewMatrix.cs" />
+     <Compile Include="Assets\Scripts\UI\SplashPageController.cs" />
+     <Compile Include="Assets\Scripts\game\DisplayAvatar.cs" />
      <Compile Include="Assets\Scripts\game\EndingPageManager.cs" />
+     <Compile Include="Assets\Scripts\game\EthanScorekeeper.cs" />
      <Compile Include="Assets\Scripts\game\GUIAnswers.cs" />
      <Compile Include="Assets\Scripts\game\GUIQuestions.cs" />
      <Compile Include="Assets\Scripts\game\GameController.cs" />
@@ -74,6 +77,7 @@
      <Compile Include="Assets\Scripts\utils\ModelSettingJson.cs" />
      <Compile Include="Assets\Scripts\utils\TouchManager.cs" />
      <None Include="Assets\SU3DJPFont\list.txt" />
+     <None Include="Assets\Resources\live2d\ethan\ethan.model.json.bytes.txt" />
      <None Include="Assets\SU3DJPFont\readme_jp.txt" />
      <None Include="Assets\SU3DJPFont\license.txt" />
      <None Include="Assets\SU3DJPFont\readme.txt" />
