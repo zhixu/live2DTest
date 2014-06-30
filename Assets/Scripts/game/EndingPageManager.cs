@@ -13,11 +13,11 @@ public class EndingPageManager : MonoBehaviour {
 
 		float finalPercent = float.Parse(PlayerPrefs.GetString("percentage"));
 		if (finalPercent >= 80) {
-			thisText.text = thisText.text + "\n" + "Congrats, you're good at this!";
+			thisText.text = thisText.text + "\n" + "Congrats, you did it!";
 		} else if (finalPercent >= 60) {
 			thisText.text = thisText.text + "\n" + "You can do better. Study up!";
 		} else {
-			thisText.text = thisText.text + "\n" + "Go do more practice!";
+			thisText.text = thisText.text + "\n" + "You need more practice. Study up!";
 		}
 	}
 	
