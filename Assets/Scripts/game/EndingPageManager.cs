@@ -4,6 +4,7 @@ using System.Collections;
 public class EndingPageManager : MonoBehaviour {
 
 	public GUIText thisText;
+	public GUIStyle style;
 
 	// Use this for initialization
 	void Start () {
@@ -27,16 +28,18 @@ public class EndingPageManager : MonoBehaviour {
 
 	void OnGUI() {
 
+		style.fontSize = Screen.height / 30;
+
 		float left = Screen.width/2-100;
 		float top = Screen.height/4 * 3;
 		float width = 200;
 		float height = 60;
 
-		if (GUI.Button(new Rect(left, top, width, height), "Retry")) {
-			Application.LoadLevel("MainScene");
+		if (GUI.Button(new Rect(left, top, width, height), "Retry", style)) {
+			Application.LoadLevel("splash");
 		}
 
-		if (GUI.Button(new Rect(left, top + 80.0f, width, height), "Quit")) {
+		if (GUI.Button(new Rect(left, top + 80.0f, width, height), "Quit", style)) {
 			Application.Quit();
 		}
 
