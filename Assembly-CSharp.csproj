@@ -1,90 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>10.0.20506</ProductVersion>
-	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{E378FF9E-CBA4-D28B-AAC3-BE2419CBEEEC}</ProjectGuid>
-	<OutputType>Library</OutputType>
-	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
-	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-	<FileAlignment>512</FileAlignment>
-	<BaseDirectory>Assets</BaseDirectory>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E378FF9E-CBA4-D28B-AAC3-BE2419CBEEEC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	<DebugSymbols>true</DebugSymbols>
-	<DebugType>full</DebugType>
-	<Optimize>false</Optimize>
-	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;Batsu</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	<DebugType>pdbonly</DebugType>
-	<Optimize>true</Optimize>
-	<OutputPath>Temp\bin\Release\</OutputPath>
-	<DefineConstants>TRACE</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-	<Reference Include="System" />
-    <Reference Include="System.XML" />
-	<Reference Include="System.Core" />
-	<Reference Include="System.Xml.Linq" />
-	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-	</Reference>
-	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-	</Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Live2D\framework\L2DBaseModel.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DExpressionMotion.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DEyeBlink.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DMatrix44.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DModelMatrix.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DMotionManager.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DPhysics.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DPose.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DTargetPoint.cs" />
-     <Compile Include="Assets\Live2D\framework\L2DViewMatrix.cs" />
-     <Compile Include="Assets\Scripts\UI\SplashPageController.cs" />
-     <Compile Include="Assets\Scripts\game\DisplayAvatar.cs" />
-     <Compile Include="Assets\Scripts\game\EndingPageManager.cs" />
-     <Compile Include="Assets\Scripts\game\EthanScorekeeper.cs" />
-     <Compile Include="Assets\Scripts\game\GUIAnswers.cs" />
-     <Compile Include="Assets\Scripts\game\GUIQuestions.cs" />
-     <Compile Include="Assets\Scripts\game\GameController.cs" />
-     <Compile Include="Assets\Scripts\game\Scorekeeper.cs" />
-     <Compile Include="Assets\Scripts\game\SettingsManager.cs" />
-     <Compile Include="Assets\Scripts\sample\LAppDefine.cs" />
-     <Compile Include="Assets\Scripts\sample\LAppLive2DManager.cs" />
-     <Compile Include="Assets\Scripts\sample\LAppModel.cs" />
-     <Compile Include="Assets\Scripts\sample\LAppView.cs" />
-     <Compile Include="Assets\Scripts\utils\AccelHelper.cs" />
-     <Compile Include="Assets\Scripts\utils\BaseModelUnity.cs" />
-     <Compile Include="Assets\Scripts\utils\ButtonChangeModel.cs" />
-     <Compile Include="Assets\Scripts\utils\FileManager.cs" />
-     <Compile Include="Assets\Scripts\utils\ModelSetting.cs" />
-     <Compile Include="Assets\Scripts\utils\ModelSettingJson.cs" />
-     <Compile Include="Assets\Scripts\utils\TouchManager.cs" />
-     <None Include="Assets\SU3DJPFont\list.txt" />
-     <None Include="Assets\Resources\live2d\ethan\ethan.model.json.bytes.txt" />
-     <None Include="Assets\SU3DJPFont\readme_jp.txt" />
-     <None Include="Assets\SU3DJPFont\license.txt" />
-     <None Include="Assets\SU3DJPFont\readme.txt" />
-     <None Include="Assets\SU3DJPFont\license_jp.txt" />
- <Reference Include="Live2DUnity">
- <HintPath>C:/Users/User01/Documents/Live2D Test/Assets/Live2D/Live2DUnity.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Live2D\framework\L2DBaseModel.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DExpressionMotion.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DEyeBlink.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DMatrix44.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DModelMatrix.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DMotionManager.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DPhysics.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DPose.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DTargetPoint.cs" />
+    <Compile Include="Assets\Live2D\framework\L2DViewMatrix.cs" />
+    <Compile Include="Assets\Scripts\UI\SplashPageController.cs" />
+    <Compile Include="Assets\Scripts\game\Card.cs" />
+    <Compile Include="Assets\Scripts\game\DisplayAvatar.cs" />
+    <Compile Include="Assets\Scripts\game\EndingPageManager.cs" />
+    <Compile Include="Assets\Scripts\game\EthanScorekeeper.cs" />
+    <Compile Include="Assets\Scripts\game\GUIAnswers.cs" />
+    <Compile Include="Assets\Scripts\game\GUIQuestions.cs" />
+    <Compile Include="Assets\Scripts\game\GameController.cs" />
+    <Compile Include="Assets\Scripts\game\Scorekeeper.cs" />
+    <Compile Include="Assets\Scripts\game\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\sample\LAppDefine.cs" />
+    <Compile Include="Assets\Scripts\sample\LAppLive2DManager.cs" />
+    <Compile Include="Assets\Scripts\sample\LAppModel.cs" />
+    <Compile Include="Assets\Scripts\sample\LAppView.cs" />
+    <Compile Include="Assets\Scripts\utils\AccelHelper.cs" />
+    <Compile Include="Assets\Scripts\utils\BaseModelUnity.cs" />
+    <Compile Include="Assets\Scripts\utils\ButtonChangeModel.cs" />
+    <Compile Include="Assets\Scripts\utils\FileManager.cs" />
+    <Compile Include="Assets\Scripts\utils\ModelSetting.cs" />
+    <Compile Include="Assets\Scripts\utils\ModelSettingJson.cs" />
+    <Compile Include="Assets\Scripts\utils\TouchManager.cs" />
+    <None Include="Assets\SU3DJPFont\list.txt" />
+    <None Include="Assets\SU3DJPFont\readme_jp.txt" />
+    <None Include="Assets\SU3DJPFont\license.txt" />
+    <None Include="Assets\SU3DJPFont\readme.txt" />
+    <None Include="Assets\SU3DJPFont\license_jp.txt" />
+    <Reference Include="Live2DUnity">
+      <HintPath>C:\Users\User01\Documents\Live2D Test\Assets\Live2D\Live2DUnity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -94,5 +93,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>

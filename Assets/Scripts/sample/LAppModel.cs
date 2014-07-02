@@ -482,10 +482,10 @@ public class LAppModel : BaseModelUnity
 		}
 		
 		//overwrites the force priority
-		if (priority == LAppDefine.PRIORITY_FORCE) {
+		/*if (priority == LAppDefine.PRIORITY_FORCE) {
 	    	mainMotionManager.setReservePriority(priority);
 	   	}
-		else if( ! mainMotionManager.reserveMotion( priority ) )
+		else*/ if( ! mainMotionManager.reserveMotion( priority ) )
 		{
 			Debug.Log("Do not play because book already playing, or playing a motion already");
 
@@ -545,9 +545,7 @@ public class LAppModel : BaseModelUnity
 	 */
 	public void setExpression(string name)
 	{
-		Debug.Log("setting expression");
 		if( ! expressions.ContainsKey( name ) )return;
-		Debug.Log("Setting expression: " + name);
 		if( LAppDefine.DEBUG_LOG ) Debug.Log( "Setting expression : " + name ) ;
 		AMotion motion=expressions[ name ] ;
 		expressionManager.startMotion( motion , false ) ;
@@ -563,8 +561,6 @@ public class LAppModel : BaseModelUnity
 		expressions.Keys.CopyTo(keys,0);
 
 		setExpression(keys[no]);
-		Debug.Log("setting expression to f01");
-		setExpression("f04");
 	}
 	
 	
@@ -649,7 +645,6 @@ public class LAppModel : BaseModelUnity
 		if(isInitialized() && !isUpdating())
 		{
 			view.OnMouseDown_exe(Input.mousePosition, Input.touches.Length) ;
-			Debug.Log ("on mouse down called");
 
 		}
 		
@@ -677,10 +672,10 @@ public class LAppModel : BaseModelUnity
 
 			if(hitTest( LAppDefine.HIT_AREA_HEAD,x, y ))
 			{
-				
+				Debug.Log ("tapped head");
 				if(LAppDefine.DEBUG_LOG) Debug.Log("Tapped face");
 				//setRandomExpression();
-				Debug.Log("Tapped face");
+				startMotion("head pat", 0, LAppDefine.PRIORITY_NORMAL);
 				if (headTapTime != 0.0f) {
 					if (Time.time - headTapTime <= 1.0f) {
 						Camera.main.GetComponent<GUIAnswers>().eliminateAnswer ();
@@ -692,7 +687,11 @@ public class LAppModel : BaseModelUnity
 			else if(hitTest( LAppDefine.HIT_AREA_BODY,x, y))
 			{
 				if(LAppDefine.DEBUG_LOG) Debug.Log("Tapped body");
-				//startRandomMotion(LAppDefine.MOTION_GROUP_TAP_BODY, LAppDefine.PRIORITY_NORMAL );
+				//startRandomMotion(LAppDefine.MOTION_GROUP_TAP_BODY, LAppDefine.PRIORITY_FORCE );
+			}
+			else if(hitTest( LAppDefine.HIT_AREA_MOUTH, x, y)) {
+				//HTTP REQUEST
+				Debug.Log("tapped mouth");
 			}
 		return true;
 	}
