@@ -715,6 +715,8 @@ public class LAppModel : BaseModelUnity
         string r = "-3";
         string c = "MP3";
         string f = "48khz_16bit_stereo";
+
+        if (SystemInfo.deviceType == DeviceType.Desktop) r = "OGG";
         
         url = url + "key=" + key + "&src=" + src + "&hl=" + hl + "&r=" + r + "&c" + c + "&f=" + f;
 
@@ -730,7 +732,9 @@ public class LAppModel : BaseModelUnity
         
         if (www.error == null) {
 
-            AudioClip audio = www.GetAudioClip(false, false, AudioType.MPEG);
+            AudioClip audio = new AudioClip();
+            if (SystemInfo.deviceType == DeviceType.Handheld) audio = www.GetAudioClip(false, false, AudioType.MPEG);
+            if (SystemInfo.deviceType == DeviceType.Desktop) audio = www.oggVorbis;//www.GetAudioClip(false, false, AudioType.OGGVORBIS);
 
             StartCoroutine(playClip(audio));
 
@@ -750,7 +754,7 @@ public class LAppModel : BaseModelUnity
         Debug.Log("clip length: " + audio.length);
         isVoice = true;
         text = "audio length: " + audio.length;
-        yield return new WaitForSeconds(audio.length);
+        yield return new WaitForSeconds(source.clip.length);
         isVoice = false;
         source.Stop();
     

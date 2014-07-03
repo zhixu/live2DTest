@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;Batsu</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_0;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;Batsu</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -56,6 +56,18 @@
      <Compile Include="Assets\Live2D\framework\L2DPose.cs" />
      <Compile Include="Assets\Live2D\framework\L2DTargetPoint.cs" />
      <Compile Include="Assets\Live2D\framework\L2DViewMatrix.cs" />
+     <Compile Include="Assets\RhythmTool\Examples\Scripts\BasicController.cs" />
+     <Compile Include="Assets\RhythmTool\Examples\Scripts\ExampleController.cs" />
+     <Compile Include="Assets\RhythmTool\Examples\Scripts\ExampleControllerV2.cs" />
+     <Compile Include="Assets\RhythmTool\Examples\Scripts\Line.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\Analysis.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\Frame.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\LomontFFT.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\MPGImport.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\Mp3Importer.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\Range.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\RhythmTool.cs" />
+     <Compile Include="Assets\RhythmTool\Scripts\Util.cs" />
      <Compile Include="Assets\Scripts\UI\SplashPageController.cs" />
      <Compile Include="Assets\Scripts\game\Card.cs" />
      <Compile Include="Assets\Scripts\game\DisplayAvatar.cs" />
