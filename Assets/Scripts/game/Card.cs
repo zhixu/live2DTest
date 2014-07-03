@@ -20,7 +20,7 @@ public class Card {
 		return front;
 	}
 
-	public string getPronounciation() {
+	public string getPronunciation() {
 		return pronunciation;
 	}
 

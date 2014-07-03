@@ -15,6 +15,8 @@ public class SettingsManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        stats.text = "Shuffle Status:";
+
 		if (PlayerPrefs.HasKey("isShuffle")) isShuffle = bool.Parse (PlayerPrefs.GetString ("isShuffle"));
 		if (PlayerPrefs.HasKey ("avatar")) {
 
@@ -39,19 +41,19 @@ public class SettingsManager : MonoBehaviour {
 		float height = Screen.height / 6;
 		style.fontSize = Screen.height / 20;
 
-		Rect shuffle = new Rect(Screen.width/2 - width/2, Screen.height/4, width, height);
+		Rect shuffle = new Rect(Screen.width/2 - width/2, Screen.height/3, width, height);
 		Rect ethan = new Rect(3 * Screen.width / 10 + Screen.width/20, Screen.height / 2, width, height);
 		Rect shizuku = new Rect(Screen.width / 2 + Screen.width/20,Screen.height / 2, width, height); 
 		Rect back = new Rect(Screen.width / 2 - width/2, 3 * Screen.height / 4,width,height);
 
-		shuffleStatus = "Card Shuffle " + (isShuffle ? "On":"Off");
+		shuffleStatus = isShuffle ? "On":"Off";
 	
 		if (GUI.Button (shuffle, shuffleStatus, style)) {
 			isShuffle = !isShuffle;
 			PlayerPrefs.SetString ("isShuffle", isShuffle ? "true":"false");
 		}
 
-		if (GUI.Button (ethan, isEthan ? "using Ethan" : "not using Ethan", style)) {
+		/*if (GUI.Button (ethan, isEthan ? "using Ethan" : "not using Ethan", style)) {
 			isEthan = !isEthan;
 			if (isEthan) isShizuku = false;
 		}
@@ -60,7 +62,7 @@ public class SettingsManager : MonoBehaviour {
 			isShizuku = !isShizuku;
 			if (isShizuku)
 			isEthan = false;
-		}
+		}*/
 
 		if (GUI.Button (back, "back", style)) {
 			if (isEthan) PlayerPrefs.SetString ("avatar", "ethan");

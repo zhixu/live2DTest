@@ -3,8 +3,6 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
-namespace Controller {
-
 public class GameController : MonoBehaviour {
 
 	public TextAsset vocabDeck;
@@ -16,7 +14,7 @@ public class GameController : MonoBehaviour {
 	
 	private Card[] cards;
 
-	private int questionNumber;
+	private int questionNumber = 0;
 	private int totalScore;
 
 	// Use this for initialization
@@ -99,6 +97,12 @@ public class GameController : MonoBehaviour {
             cards[r] = temp;
         }
     }
-}
+        
+    public string getCurrentPronunciation() {
+        Card card = cards[questionNumber-1];
+        Debug.Log("front: " + card.getFront() + " pronunce: " + card.getPronunciation() + " back: " + card.getBack());
+        
+        return cards [questionNumber-1].getPronunciation();
+    }
 
 }

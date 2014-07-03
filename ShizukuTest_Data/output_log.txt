@@ -14,16 +14,16 @@ Platform assembly: C:\Users\User01\Documents\Live2D Test\ShizukuTest_Data\Manage
 Loading C:\Users\User01\Documents\Live2D Test\ShizukuTest_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\User01\Documents\Live2D Test\ShizukuTest_Data\Managed\Live2DUnity.dll (this message is harmless)
 Loading C:\Users\User01\Documents\Live2D Test\ShizukuTest_Data\Managed\Live2DUnity.dll into Unity Child Domain
-- Completed reload, in  0.067 seconds
+- Completed reload, in  0.047 seconds
 desktop: 1920x1080 59Hz; virtual: 3456x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-UnloadTime: 0.252249 ms
+UnloadTime: 9.837724 ms
 Platform assembly: C:\Users\User01\Documents\Live2D Test\ShizukuTest_Data\Managed\System.dll (this message is harmless)
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 188.
-Total: 0.844383 ms (FindLiveObjects: 0.024080 ms CreateObjectMapping: 0.007500 ms MarkObjects: 0.319357 ms  DeleteObjects: 0.050923 ms)
+Total: 2.366564 ms (FindLiveObjects: 0.036712 ms CreateObjectMapping: 0.023290 ms MarkObjects: 0.873595 ms  DeleteObjects: 0.127506 ms)
 
 on mouse down called
  
@@ -34,50 +34,6 @@ on mouse down called
 (Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
 Tapped face
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-on mouse down called
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Tapped face
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-eliminate answer has been called.
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-on mouse down called
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-setting expression
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Setting expression: idle
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-questions so far: 1
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-after yield: 10.1974
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-setting expression
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Setting expression: open eyes happy
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Do not play because book already playing, or playing a motion already
  
 (Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -109,31 +65,19 @@ on mouse down called
  
 (Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-setting expression
+on mouse down called
  
 (Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Setting expression: idle
+Tapped face
  
 (Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-questions so far: 2
+on mouse down called
  
 (Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-after yield: 21.80896
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-setting expression
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Setting expression: open eyes happy
- 
-(Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-Do not play because book already playing, or playing a motion already
+Tapped face
  
 (Filename: C:/BuildAgent/work/aeedb04a1292f85a/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 

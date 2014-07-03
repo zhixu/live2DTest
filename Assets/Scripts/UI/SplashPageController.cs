@@ -19,7 +19,7 @@ public class SplashPageController : MonoBehaviour {
 		style.fontSize = Screen.height / 20;
 
 		float left = Screen.width/2-100;
-		float top = Screen.height/4 * 3;
+		float top = Screen.height/5 * 3;
 		float width = 200;
 		float height = 60;
 

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Controller;
 
 public class GUIAnswers : MonoBehaviour {
 	
@@ -86,9 +85,6 @@ public class GUIAnswers : MonoBehaviour {
 
 	void OnGUI() {
 
-		//GUI.skin.button.fontSize = Screen.height / 20;
-		//GUI.skin.button.wordWrap = true;
-
 		answerStyle.fontSize = Screen.height / 20;
 
 		left = Screen.width / 16.0f;
@@ -133,8 +129,7 @@ public class GUIAnswers : MonoBehaviour {
 
 	// eliminates the answer if a double tap event has occurred
 	public void eliminateAnswer() {
-
-
+        
 		if (isFirstElimination) {
 			Debug.Log ("eliminate answer has been called.");
 
@@ -150,20 +145,6 @@ public class GUIAnswers : MonoBehaviour {
 
 				numEliminated++;
 			}
-
-			/*string[] newAnswers = new string[numberAnswers / 2];
-
-			int n = Random.Range (0, newAnswers.Length);
-			newAnswers [n] = correctAnswer;
-
-			int i = 0;
-			foreach (string answer in answers) {
-					if (i != n && answer != correctAnswer) {
-							newAnswers [i] = answer;
-					}
-			}
-
-			answers = newAnswers;*/
 
 			isFirstElimination = false;
 		}

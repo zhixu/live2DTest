@@ -28,9 +28,13 @@ public class LAppModel : BaseModelUnity
 	
 	private Bounds				bounds	;
 
+    private AudioSource source;
+
 	// parameters needed for this game specifically
 	private bool isTrackingMouse = true;
 	private float headTapTime = 0.0f;
+    private bool isVoice = false;
+    private string text = "voice is playing call was successful";
 	
 	public override void initModel()
 	{
@@ -55,6 +59,9 @@ public class LAppModel : BaseModelUnity
 		}
 	}
 	
+    void Start() {
+        source = Camera.main.GetComponent<AudioSource>();
+    }
 	
 	void OnRenderObject()
 	{
@@ -95,7 +102,7 @@ public class LAppModel : BaseModelUnity
 		    		Debug.Log(e.StackTrace);
 		    	}
 		    }
-			
+
 			updateModel();
 			if(live2DModel.getRenderMode() == Live2D.L2D_RENDER_DRAW_MESH)
 			{
@@ -362,6 +369,8 @@ public class LAppModel : BaseModelUnity
 
 		
 		if(pose!=null)pose.updateParam(live2DModel);
+
+        if(source.isPlaying) live2DModel.setParamFloat(PARAM_MOUTH_OPEN_Y, source.volume);
 		
 		live2DModel.update();
 	}
@@ -503,7 +512,6 @@ public class LAppModel : BaseModelUnity
 			mainMotionManager.setReservePriority( 0 ) ;
 			return;
 		}
-
 		
 		motion.setFadeIn(modelSetting.getMotionFadeIn(name, no));
 		motion.setFadeOut(modelSetting.getMotionFadeOut(name, no));
@@ -610,6 +618,7 @@ public class LAppModel : BaseModelUnity
 
 		if(hitTest(LAppDefine.HIT_AREA_HEAD, x, y))
 		{
+            Debug.Log("face flicked");
 			if(LAppDefine.DEBUG_LOG) Debug.Log("Flick face");
 			//startRandomMotion(LAppDefine.MOTION_GROUP_FLICK_HEAD, LAppDefine.PRIORITY_NORMAL );
 		}
@@ -674,7 +683,6 @@ public class LAppModel : BaseModelUnity
 			{
 				Debug.Log ("tapped head");
 				if(LAppDefine.DEBUG_LOG) Debug.Log("Tapped face");
-				//setRandomExpression();
 				startMotion("head pat", 0, LAppDefine.PRIORITY_NORMAL);
 				if (headTapTime != 0.0f) {
 					if (Time.time - headTapTime <= 1.0f) {
@@ -692,11 +700,69 @@ public class LAppModel : BaseModelUnity
 			else if(hitTest( LAppDefine.HIT_AREA_MOUTH, x, y)) {
 				//HTTP REQUEST
 				Debug.Log("tapped mouth");
+				string var = Camera.main.GetComponent<GameController>().getCurrentPronunciation();
+            
+                getAudio(var);
 			}
 		return true;
 	}
+    
+    void getAudio(string src) {
+        
+        string url = "http://api.voicerss.org/?";
+        string key = "3b0ecbdfa24345269d712e94f34a9615";
+        string hl = "ja-jp";
+        string r = "-3";
+        string c = "MP3";
+        string f = "48khz_16bit_stereo";
+        
+        url = url + "key=" + key + "&src=" + src + "&hl=" + hl + "&r=" + r + "&c" + c + "&f=" + f;
+
+		Debug.Log (url);
+        
+        WWW www = new WWW(url);
+        StartCoroutine(waitForRequest(www));
+    }
+    
+    IEnumerator waitForRequest(WWW www) {
+        
+        yield return www;
+        
+        if (www.error == null) {
+
+            AudioClip audio = www.GetAudioClip(false, false, AudioType.MPEG);
+
+            StartCoroutine(playClip(audio));
+
+        } else {
+            
+            Debug.Log("there's an error.");
+            text = "there's an error";
+            isVoice = true;
+            Debug.Log(www.error);
+        }
+    }
 	
-	
+	IEnumerator playClip(AudioClip audio) {
+        
+        source.clip = audio;
+        source.Play();
+        Debug.Log("clip length: " + audio.length);
+        isVoice = true;
+        text = "audio length: " + audio.length;
+        yield return new WaitForSeconds(audio.length);
+        isVoice = false;
+        source.Stop();
+    
+    }
+
+    void OnGUI() {
+        if (isVoice) {
+            GUIStyle style = new GUIStyle();
+            style.fontSize = 30;
+            GUI.Button(new Rect(0, 30, 400, 400), text, style);
+        }
+    }
 	
 	public void shakeEvent()
 	{

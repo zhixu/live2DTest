@@ -1,5 +1,4 @@
 using UnityEngine;
-using Controller;
 using System.Collections;
 
 public class EthanScorekeeper : MonoBehaviour {
@@ -33,7 +32,12 @@ public class EthanScorekeeper : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		score.text = "score: " + points;
-		percent.text = percentage.ToString ("F2") + "%";
+        
+        if (percentage == 100) {
+            percent.text = percentage.ToString ("F0") + "%";
+        } else {
+            percent.text = percentage.ToString ("F2") + "%";
+        }
 
 		Color color;
 		
@@ -69,11 +73,12 @@ public class EthanScorekeeper : MonoBehaviour {
 
 		if (percentage >= 70) {
 			appModel.startMotion ("thumbs up", 0, LAppDefine.PRIORITY_NORMAL);
+            StartCoroutine(displayReaction(3f));
 		} else {
 			appModel.startMotion("happy", 0, LAppDefine.PRIORITY_NORMAL);
+            StartCoroutine(displayReaction(3.5f));
 		}
-
-		StartCoroutine(displayReaction(3.5f));
+		
 	}
 
 	public void subtractPoint() {
@@ -108,7 +113,7 @@ public class EthanScorekeeper : MonoBehaviour {
 			StartCoroutine(displayReaction(6));
 		} else { 
 			appModel.setExpression("angry");
-			appModel.startMotion("grossed", 0, LAppDefine.PRIORITY_NORMAL);
+			appModel.startMotion("hands on hips", 0, LAppDefine.PRIORITY_NORMAL);
 			StartCoroutine(displayReaction(3));
 		}
 
