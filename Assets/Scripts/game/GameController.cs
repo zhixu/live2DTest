@@ -23,28 +23,20 @@ public class GameController : MonoBehaviour {
 		guiQuestions = this.GetComponent<GUIQuestions>();
 		guiAnswers = this.GetComponent<GUIAnswers>();
 		scorekeeper = this.GetComponent<EthanScorekeeper>();
-		
-		//split array by comma but ignore the ones within quotation marks; ignore carriage returns as well
-		string myVocabDeck = vocabDeck.text.Replace(System.Environment.NewLine, "");
-		string[] stringArray = Regex.Split(myVocabDeck, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-		int totalWords = stringArray.Length / 3;
-		
-        cards = new Card[totalWords];
-
-		int wordCount = 0;
-
-		for (int i = 0; i < stringArray.Length-1; i+=3) {
-
-            Card card = new Card(stringArray[i], stringArray[i+1], stringArray[i+2]);
-            cards[wordCount] = card;
-
-			wordCount++;
-		}
+ 
+        if(PlayerPrefs.HasKey("isFlipCard")) {
+            
+            if (bool.Parse (PlayerPrefs.GetString("isFlipCard"))) loadCards(2, 1, 0);
+            if (! bool.Parse (PlayerPrefs.GetString("isFlipCard"))) {
+                Debug.Log("load cards normally");
+                loadCards(0, 1, 2);
+            }
+        } else {
+            loadCards(0, 1, 2);
+        }
             
         if (PlayerPrefs.HasKey("isShuffle")) {
-                if (bool.Parse (PlayerPrefs.GetString ("isShuffle"))) {
-                    shuffleDeck ();
-                }
+                if (bool.Parse (PlayerPrefs.GetString ("isShuffle"))) shuffleDeck ();
         }
 		totalScore = cards.Length;
 		if (totalScore == 0) {
@@ -52,6 +44,26 @@ public class GameController : MonoBehaviour {
 		}
 		updateQuestion();
 	}
+
+    void loadCards(int a, int b, int c) {
+
+          //split array by comma but ignore the ones within quotation marks; ignore carriage returns as well
+          string myVocabDeck = vocabDeck.text.Replace(System.Environment.NewLine, "");
+          string[] stringArray = Regex.Split(myVocabDeck, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+          int totalWords = stringArray.Length / 3;
+          
+          cards = new Card[totalWords];
+            
+          int wordCount = 0;
+          for (int i = 0; i < stringArray.Length-1; i+=3) {
+          
+              Card card = new Card(stringArray[i+a], stringArray[i+b], stringArray[i+c]);
+              cards[wordCount] = card;
+                        
+              wordCount++;
+        }
+
+    }
 
 	public void updateQuestion() {
 
@@ -100,8 +112,6 @@ public class GameController : MonoBehaviour {
         
     public string getCurrentPronunciation() {
         Card card = cards[questionNumber-1];
-        Debug.Log("front: " + card.getFront() + " pronunce: " + card.getPronunciation() + " back: " + card.getBack());
-        
         return cards [questionNumber-1].getPronunciation();
     }
 

@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GUIAnswers : MonoBehaviour {
 	
 	public GUIStyle answerStyle;
+    public Font font;
+    public Font altFont;
 
 	private EthanScorekeeper scorekeeper;
 	private GameController gc;
@@ -38,14 +40,20 @@ public class GUIAnswers : MonoBehaviour {
 			answers[i] = "answer";
 		}
 
-		// create a random array of integers and shuffle contents for random answer buttons
+        if (PlayerPrefs.HasKey("isFlipCard")) {
+            if (bool.Parse (PlayerPrefs.GetString("isFlipCard"))) answerStyle.font = altFont;
+            if (! bool.Parse (PlayerPrefs.GetString("isFlipCard"))) answerStyle.font = font;
+        }
+                
+        // create a random array of integers and shuffle contents for random answer buttons
 		randArray = new int[numberAnswers];
 		for (int i = 0; i < randArray.Length; i++)
 			randArray[i] = i;
 		shuffleRandArray();
 
+        answerStyle.fontSize = Screen.height / 14;
 	}
-
+    
 	public int getNumberAnswers() {
 		return numberAnswers;
 	}
@@ -85,13 +93,11 @@ public class GUIAnswers : MonoBehaviour {
 
 	void OnGUI() {
 
-		answerStyle.fontSize = Screen.height / 20;
-
-		left = Screen.width / 16.0f;
-		top = Screen.height / 6.0f;
-		width = Screen.width / 4.0f;
-		height = Screen.height / 4.0f;
-
+        left = Screen.width / 16.0f;
+        top = Screen.height / 6.0f;
+        width = Screen.width / 4.0f;
+        height = Screen.height / 4.0f;
+            
 		answerCount = 0;
 
 		if (isAskingQuestion) {
@@ -111,8 +117,6 @@ public class GUIAnswers : MonoBehaviour {
 						isAskingQuestion = false;
 						GUIQuestions q = this.GetComponent <GUIQuestions>();
 						q.turnOffQuestion();
-
-
 					}
 				}
 
@@ -125,6 +129,10 @@ public class GUIAnswers : MonoBehaviour {
 				}
 			}
 		}
+
+        if (GUI.Button(new Rect(Screen.width-width/4-10, Screen.height-width/4-10, width/4, height/4), "back")) {
+            Application.LoadLevel("splash");
+        }
 	}
 
 	// eliminates the answer if a double tap event has occurred

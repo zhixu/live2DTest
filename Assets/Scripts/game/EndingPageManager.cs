@@ -28,18 +28,18 @@ public class EndingPageManager : MonoBehaviour {
 
 	void OnGUI() {
 
-		style.fontSize = Screen.height / 30;
+		style.fontSize = Screen.height / 14;
 
-		float left = Screen.width/2-100;
-		float top = Screen.height/4 * 3;
-		float width = 200;
-		float height = 60;
+		float left = Screen.width/2-Screen.width/10;
+		float top = Screen.height/2;
+        float width = Screen.width/5;
+        float height = Screen.height/5;
 
 		if (GUI.Button(new Rect(left, top, width, height), "Retry", style)) {
 			Application.LoadLevel("splash");
 		}
 
-		if (GUI.Button(new Rect(left, top + 80.0f, width, height), "Quit", style)) {
+		if (GUI.Button(new Rect(left, top + height + 10, width, height), "Quit", style)) {
 			Application.Quit();
 		}
 

@@ -16,12 +16,12 @@ public class SplashPageController : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		style.fontSize = Screen.height / 20;
+		style.fontSize = Screen.height / 14;
 
-		float left = Screen.width/2-100;
-		float top = Screen.height/5 * 3;
-		float width = 200;
-		float height = 60;
+		float left = Screen.width/2-Screen.width/8;
+		float top = Screen.height/2-Screen.height/40;
+		float width = Screen.width/4;
+		float height = Screen.height/4;
 
 		if (GUI.Button (new Rect (left, top, width, height), "start", style)) {
 			if (PlayerPrefs.HasKey ("avatar")) {
@@ -30,15 +30,15 @@ public class SplashPageController : MonoBehaviour {
 
 				if (string.Equals (avatar, "ethan")) Application.LoadLevel ("ethan");
 				if (string.Equals (avatar, "shizuku")) Application.LoadLevel ("shizuku");
+
 			} else {
-				Application.LoadLevel ("ethanscene");
+				Application.LoadLevel ("ethan");
 			}
 		}
 
-		if (GUI.Button (new Rect (left, top + 80.0f, width, height), "settings", style)) {
+		if (GUI.Button (new Rect (left, top + Screen.height/4 + 10, width, height), "settings", style)) {
 			Application.LoadLevel ("settings");
 		}
 	}
-
-
+    
 }

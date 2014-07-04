@@ -33,8 +33,6 @@ public class LAppModel : BaseModelUnity
 	// parameters needed for this game specifically
 	private bool isTrackingMouse = true;
 	private float headTapTime = 0.0f;
-    private bool isVoice = false;
-    private string text = "voice is playing call was successful";
 	
 	public override void initModel()
 	{
@@ -699,10 +697,12 @@ public class LAppModel : BaseModelUnity
 			}
 			else if(hitTest( LAppDefine.HIT_AREA_MOUTH, x, y)) {
 				//HTTP REQUEST
-				Debug.Log("tapped mouth");
 				string var = Camera.main.GetComponent<GameController>().getCurrentPronunciation();
-            
-                getAudio(var);
+                if (PlayerPrefs.HasKey("isFlipCard")) {
+                    if (! bool.Parse (PlayerPrefs.GetString("isFlipCard"))) getAudio(var);
+                } else {
+                    getAudio(var);
+                }
 			}
 		return true;
 	}
@@ -713,12 +713,12 @@ public class LAppModel : BaseModelUnity
         string key = "3b0ecbdfa24345269d712e94f34a9615";
         string hl = "ja-jp";
         string r = "-3";
-        string c = "MP3";
+        string c = "WAV";
         string f = "48khz_16bit_stereo";
 
-        if (SystemInfo.deviceType == DeviceType.Desktop) r = "OGG";
+        if (SystemInfo.deviceType == DeviceType.Desktop) c = "OGG";
         
-        url = url + "key=" + key + "&src=" + src + "&hl=" + hl + "&r=" + r + "&c" + c + "&f=" + f;
+        url = url + "key=" + key + "&src=" + src + "&hl=" + hl + "&r=" + r + "&c=" + c + "&f=" + f;
 
 		Debug.Log (url);
         
@@ -733,17 +733,16 @@ public class LAppModel : BaseModelUnity
         if (www.error == null) {
 
             AudioClip audio = new AudioClip();
-            if (SystemInfo.deviceType == DeviceType.Handheld) audio = www.GetAudioClip(false, false, AudioType.MPEG);
-            if (SystemInfo.deviceType == DeviceType.Desktop) audio = www.oggVorbis;//www.GetAudioClip(false, false, AudioType.OGGVORBIS);
+
+            if (SystemInfo.deviceType == DeviceType.Handheld) audio = www.GetAudioClip(true, false, AudioType.WAV);
+            if (SystemInfo.deviceType == DeviceType.Desktop) audio = www.GetAudioClip(true, false, AudioType.OGGVORBIS);
 
             StartCoroutine(playClip(audio));
 
         } else {
-            
-            Debug.Log("there's an error.");
-            text = "there's an error";
-            isVoice = true;
+
             Debug.Log(www.error);
+
         }
     }
 	
@@ -751,21 +750,11 @@ public class LAppModel : BaseModelUnity
         
         source.clip = audio;
         source.Play();
-        Debug.Log("clip length: " + audio.length);
-        isVoice = true;
-        text = "audio length: " + audio.length;
-        yield return new WaitForSeconds(source.clip.length);
-        isVoice = false;
+        lipSync = true;
+        yield return new WaitForSeconds(source.clip.length-1);
+        lipSync = false;
         source.Stop();
     
-    }
-
-    void OnGUI() {
-        if (isVoice) {
-            GUIStyle style = new GUIStyle();
-            style.fontSize = 30;
-            GUI.Button(new Rect(0, 30, 400, 400), text, style);
-        }
     }
 	
 	public void shakeEvent()

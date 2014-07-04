@@ -47,9 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\CreateCanvas.cs" />
-     <Compile Include="Assets\RhythmTool\Editor\AnalysisDrawer.cs" />
-     <Compile Include="Assets\RhythmTool\Editor\AnalysisListDrawer.cs" />
-     <Compile Include="Assets\RhythmTool\Editor\RhythmToolDrawer.cs" />
      <None Include="Assets\SU3DJPFont\list.txt" />
      <None Include="Assets\SU3DJPFont\readme_jp.txt" />
      <None Include="Assets\SU3DJPFont\license.txt" />
