@@ -1,0 +1,60 @@
+{
+	"version":"Sample 1.0.0",
+	"model":"Live2D/shizuku2/model.moc",
+	"textures":[
+		"Live2D/shizuku2/model.1024/texture_00.png",
+		"Live2D/shizuku2/model.1024/texture_01.png",
+		"Live2D/shizuku2/model.1024/texture_02.png",
+		"Live2D/shizuku2/model.1024/texture_03.png",
+		"Live2D/shizuku2/model.1024/texture_04.png"
+	],
+	"hit_areas":
+	[
+		{"name":"head", "id":"D_REF.HAIR"},
+		{"name":"mouth", "id":"D_REF.BODY"}
+	],
+	"motions":{
+		"angry":[
+			{
+				"file":"Live2D/shizuku2/motions/motions/motion01.mtn"
+			}
+		],
+		"surprised":[
+			{
+				"file":"Live2D/shizuku2/motions/motions/motion02.mtn"
+			}
+		],
+		"okay":[
+			{
+				"file":"Live2D/shizuku2/motions/motions/motion04.mtn"
+			}
+		],
+		"0 percent":[
+			{
+				"file":"Live2D/shizuku2/motions/motions/motion05.mtn"
+			}
+		],
+		"happy":[
+			{
+				"file":"Live2D/shizuku2/motions/motions/motion00.mtn"
+			}
+		],
+		"100 percent":[
+			{
+				"file":"Live2D/shizuku2/motions/motions/motion03.mtn"
+			}
+		]
+	},
+	"expressions":[
+		{"name":"100 percent","file":"Live2D/shizuku2/motions/expressions/exp00.exp.json"},
+		{"name":"extremely happy","file":"Live2D/shizuku2/motions/expressions/exp01.exp.json"},
+		{"name":"happy","file":"Live2D/shizuku2/motions/expressions/exp02.exp.json"},
+		{"name":"judging","file":"Live2D/shizuku2/motions/expressions/exp03.exp.json"},
+		{"name":"sad","file":"Live2D/shizuku2/motions/expressions/exp04.exp.json"},
+		{"name":"angry","file":"Live2D/shizuku2/motions/expressions/exp05.exp.json"},
+		{"name":"default","file":"Live2D/shizuku2/motions/expressions/exp06.exp.json"},
+		{"name":"overwhelmed","file":"Live2D/shizuku2/motions/expressions/exp07.exp.json"}
+	],
+	"pose":"Live2D/shizuku2/pose.json",
+	"physics":"Live2D/shizuku2/shizuku.physics.json"
+}

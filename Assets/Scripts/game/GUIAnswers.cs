@@ -7,7 +7,7 @@ public class GUIAnswers : MonoBehaviour {
     public Font font;
     public Font altFont;
 
-	private EthanScorekeeper scorekeeper;
+	private Scorekeeper scorekeeper;
 	private GameController gc;
 
 	private string[] answers;
@@ -30,7 +30,7 @@ public class GUIAnswers : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		scorekeeper = this.GetComponent<EthanScorekeeper>();
+		scorekeeper = this.GetComponent<Scorekeeper>();
 		gc = this.GetComponent<GameController>();
 
 		heightIncrement = 3.0f * Screen.height / 8.0f;
@@ -109,6 +109,9 @@ public class GUIAnswers : MonoBehaviour {
 					if (GUI.Button(new Rect(left, top, width, height), answer, answerStyle)) {
 						
 						if (string.Equals(answer, correctAnswer)) {
+                            
+
+
 							scorekeeper.addPoint();
 						} else {
 							scorekeeper.subtractPoint();

@@ -57,7 +57,7 @@
 		],
 		"thumbs up":
 		[
-			{ "file":"Live2D/ethan/motions/motions/motion06.mtn","fade_in":1000,"fade_out":1000}
+			{ "file":"Live2D/ethan/motions/motions/motion06.mtn","fade_in":200,"fade_out":100}
 		],
 		"hands on hips":
 		[

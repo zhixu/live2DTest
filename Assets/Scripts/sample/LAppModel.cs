@@ -33,6 +33,7 @@ public class LAppModel : BaseModelUnity
 	// parameters needed for this game specifically
 	private bool isTrackingMouse = true;
 	private float headTapTime = 0.0f;
+    private float mouthTapTime = 0.0f;
 	
 	public override void initModel()
 	{
@@ -697,12 +698,20 @@ public class LAppModel : BaseModelUnity
 			}
 			else if(hitTest( LAppDefine.HIT_AREA_MOUTH, x, y)) {
 				//HTTP REQUEST
-				string var = Camera.main.GetComponent<GameController>().getCurrentPronunciation();
-                if (PlayerPrefs.HasKey("isFlipCard")) {
-                    if (! bool.Parse (PlayerPrefs.GetString("isFlipCard"))) getAudio(var);
-                } else {
-                    getAudio(var);
+                
+                if (mouthTapTime != 0.0f) {
+                    if(Time.time - mouthTapTime <= 1.0f) {
+
+        				string var = Camera.main.GetComponent<GameController>().getCurrentPronunciation();
+                        if (PlayerPrefs.HasKey("isFlipCard")) {
+                            if (! bool.Parse (PlayerPrefs.GetString("isFlipCard"))) getAudio(var);
+                        } else {
+                            getAudio(var);
+                        }
+                    }
                 }
+                mouthTapTime = Time.time;          
+
 			}
 		return true;
 	}
