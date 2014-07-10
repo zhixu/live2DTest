@@ -28,7 +28,7 @@ public class Scorekeeper : MonoBehaviour {
         
         percent.fontSize = Screen.height / 8;
 
-        avatar = "shizuku";//PlayerPrefs.GetString("avatar");
+        avatar = PlayerPrefs.GetString("avatar");
 	}
 	
 	// Update is called once per frame

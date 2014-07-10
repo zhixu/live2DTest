@@ -5,13 +5,18 @@ public class EndingPageManager : MonoBehaviour {
 
 	public GUIText thisText;
 	public GUIStyle style;
+    public Sprite hanamaru1;
+    public Sprite hanamaru2;
+    public GameObject hanamaru;
+
+    private float finalPercent;
 
 	// Use this for initialization
 	void Start () {
 		thisText.text = PlayerPrefs.GetString("points") + " out of " + PlayerPrefs.GetString("total")  + " correct"
 					+ "\n" + PlayerPrefs.GetString("percentage") + " % accuracy " + "\n";
 
-		float finalPercent = float.Parse(PlayerPrefs.GetString("percentage"));
+		finalPercent = float.Parse(PlayerPrefs.GetString("percentage"));
 		if (finalPercent >= 80) {
 			thisText.text = thisText.text + "\n" + "Congrats, you did it!";
 		} else if (finalPercent >= 60) {

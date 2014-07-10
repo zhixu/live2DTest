@@ -55,6 +55,9 @@
  <Reference Include="Live2DUnity">
  <HintPath>C:/Users/User01/Documents/Live2D Test/Assets/Live2D/Live2DUnity.dll</HintPath>
  </Reference>
+ <Reference Include="System.Windows.Forms">
+ <HintPath>C:/Users/User01/Documents/Live2D Test/Assets/Plugins/System.Windows.Forms.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>

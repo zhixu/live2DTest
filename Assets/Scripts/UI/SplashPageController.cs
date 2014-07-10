@@ -23,7 +23,7 @@ public class SplashPageController : MonoBehaviour {
 		float width = Screen.width/4;
 		float height = Screen.height/4;
 
-		if (GUI.Button (new Rect (left, top, width, height), "start", style)) {
+		/*if (GUI.Button (new Rect (left, top, width, height), "start", style)) {
 			if (PlayerPrefs.HasKey ("avatar")) {
 
 				string avatar = PlayerPrefs.GetString ("avatar");
@@ -34,9 +34,9 @@ public class SplashPageController : MonoBehaviour {
 			} else {
 				Application.LoadLevel ("ethan");
 			}
-		}
+		})*/
 
-		if (GUI.Button (new Rect (left, top + Screen.height/4 + 10, width, height), "settings", style)) {
+		if (GUI.Button (new Rect (left, top + Screen.height/4 + 10, width, height), "start", style)) {
 			Application.LoadLevel ("settings");
 		}
 	}

@@ -4,11 +4,11 @@ using System.Collections;
 public class GUIAnswers : MonoBehaviour {
 	
 	public GUIStyle answerStyle;
+    public GUIStyle buttonStyle;
     public Font font;
     public Font altFont;
 
 	private Scorekeeper scorekeeper;
-	private GameController gc;
 
 	private string[] answers;
 	private string correctAnswer = null;
@@ -31,7 +31,6 @@ public class GUIAnswers : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		scorekeeper = this.GetComponent<Scorekeeper>();
-		gc = this.GetComponent<GameController>();
 
 		heightIncrement = 3.0f * Screen.height / 8.0f;
 
@@ -54,9 +53,10 @@ public class GUIAnswers : MonoBehaviour {
         answerStyle.fontSize = Screen.height / 14;
 	}
     
+  /*
 	public int getNumberAnswers() {
 		return numberAnswers;
-	}
+	}*/
 
 	public void setAnswers(string correct, string[] incorrect) {
 
@@ -64,14 +64,14 @@ public class GUIAnswers : MonoBehaviour {
 		isFirstElimination = true;
 		isAskingQuestion = true;
 
-		if (incorrect.Length < numberAnswers) {
-			for (int i = 0; i < incorrect.Length; i++)
-				answers[randArray[i]] = incorrect[i];
-			answers[randArray[numberAnswers-1]] = correct;
-			shuffleRandArray();
-		} else {
+		//if (incorrect.Length < numberAnswers) {
+		for (int i = 0; i < incorrect.Length; i++)
+			answers[randArray[i]] = incorrect[i];
+		    answers[randArray[incorrect.Length]] = correct;
+		    shuffleRandArray();
+		/*} else {
 			Debug.Log("Number of answers are not matching.");
-		}
+		}*/
 
 	}
 
@@ -92,6 +92,8 @@ public class GUIAnswers : MonoBehaviour {
 	}
 
 	void OnGUI() {
+
+        buttonStyle.fontSize = Screen.height / 35;
 
         left = Screen.width / 16.0f;
         top = Screen.height / 6.0f;
@@ -133,8 +135,8 @@ public class GUIAnswers : MonoBehaviour {
 			}
 		}
 
-        if (GUI.Button(new Rect(Screen.width-width/4-10, Screen.height-width/4-10, width/4, height/4), "back")) {
-            Application.LoadLevel("splash");
+        if (GUI.Button(new Rect(Screen.width-width/3-10, Screen.height-width/4-10, width/3, height/3), "back", buttonStyle)) {
+            Application.LoadLevel("settings");
         }
 	}
 
