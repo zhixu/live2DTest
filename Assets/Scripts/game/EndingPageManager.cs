@@ -5,8 +5,6 @@ public class EndingPageManager : MonoBehaviour {
 
 	public GUIText thisText;
 	public GUIStyle style;
-    public Sprite hanamaru1;
-    public Sprite hanamaru2;
     public GameObject hanamaru;
 
     private float finalPercent;
@@ -24,6 +22,8 @@ public class EndingPageManager : MonoBehaviour {
 		} else {
 			thisText.text = thisText.text + "\n" + "You need more practice. Study up!";
 		}
+
+        hanamaru.animation.
 	}
 	
 	// Update is called once per frame
