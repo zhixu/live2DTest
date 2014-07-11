@@ -480,6 +480,7 @@ public class LAppModel : BaseModelUnity
 	
 	public void startMotion(string name, int no,int priority)
 	{
+        Debug.Log("starting motion name: " + name);
 
 		string motionName = modelSetting.getMotionFile( name, no ) ;
 

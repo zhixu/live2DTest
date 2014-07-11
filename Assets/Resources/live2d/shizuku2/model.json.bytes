@@ -19,7 +19,7 @@
 				"file":"Live2D/shizuku2/motions/motions/motion01.mtn"
 			}
 		],
-		"surprised":[
+		"disappointed":[
 			{
 				"file":"Live2D/shizuku2/motions/motions/motion02.mtn"
 			}
@@ -43,6 +43,9 @@
 			{
 				"file":"Live2D/shizuku2/motions/motions/motion03.mtn"
 			}
+		],
+		"head pat":[
+			{ "file":"Live2D/shizuku2/motions/motions/motion06.mtn","fade_in":200,"fade_out":200}
 		]
 	},
 	"expressions":[

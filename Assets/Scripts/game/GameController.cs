@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
@@ -33,8 +34,14 @@ public class GameController : MonoBehaviour {
 	}
 
       IEnumerator waitForRequest (WWW www) {
+        
+        
         yield return www;
+
+
         byte[] bytes = www.bytes;
+            
+
         vocabDeck = System.Text.Encoding.UTF8.GetString(bytes);
         
         if(PlayerPrefs.HasKey("isFlipCard")) {
@@ -46,7 +53,7 @@ public class GameController : MonoBehaviour {
         } else {
           loadCards(0, 1, 2);
             }
-        }
+    }
 
     void loadCards(int a, int b, int c) {
         
@@ -76,7 +83,8 @@ public class GameController : MonoBehaviour {
         }
         totalScore = cards.Count;
         if (totalScore == 0) {
-          Debug.Log("There are no vocabulary words in this deck.");
+            EditorUtility.DisplayDialog("Error", "Incorrect file format or path has not been specified correctly.", "Go Back");
+            Application.LoadLevel ("settings");
         }
         updateQuestion();
     
@@ -84,42 +92,46 @@ public class GameController : MonoBehaviour {
     
 	public void updateQuestion() {
         
-		if (questionNumber >= totalScore) {
+		if (totalScore > 0 && questionNumber >= totalScore) {
+            Debug.Log("question number: " + questionNumber + "totalScore: " + totalScore);
+
+
 			scorekeeper.savePlayerSettings();
 			Application.LoadLevel("ending");
-		}
+		} else {
 
-		guiQuestions.setQuestion(cards[questionNumber].getFront ());
+    		guiQuestions.setQuestion(cards[questionNumber].getFront ());
 
-		string[] incorrect = new string[numIncorrect];
-		List<int> random = new List<int> ();
-        random.Add(questionNumber);
+    		string[] incorrect = new string[numIncorrect];
+    		List<int> random = new List<int> ();
+            random.Add(questionNumber);
 
-        if (totalScore-1 > numIncorrect) {
-    		for (int i = 0; i < incorrect.Length; i++) {
-                int r;
-    			while(true) {
-    			    r = Random.Range(0, totalScore);
-    			    if (!random.Contains(r)) break;
-    			}
-    			
-    			random.Add (r);
-                    
-    			incorrect[i] = cards[r].getBack ();
-    		}	
-        } else {
-            int incNumber = 0;
-            for (int i = 0; i < cards.Count; i++) {
-                if (i == questionNumber ) continue;
-                incorrect[incNumber] = cards[i].getBack();
-                incNumber++;
+            if (totalScore-1 > numIncorrect) {
+        		for (int i = 0; i < incorrect.Length; i++) {
+                    int r;
+        			while(true) {
+        			    r = UnityEngine.Random.Range(0, totalScore);
+        			    if (!random.Contains(r)) break;
+        			}
+        			
+        			random.Add (r);
+                        
+        			incorrect[i] = cards[r].getBack ();
+        		}	
+            } else {
+                int incNumber = 0;
+                for (int i = 0; i < cards.Count; i++) {
+                    if (i == questionNumber ) continue;
+                    incorrect[incNumber] = cards[i].getBack();
+                    incNumber++;
+                }
+                for (; incNumber < incorrect.Length; incNumber++) {
+                    incorrect[incNumber] = null;
+                }
             }
-            for (; incNumber < incorrect.Length; incNumber++) {
-                incorrect[incNumber] = null;
-            }
+            guiAnswers.setAnswers(cards[questionNumber].getBack (), incorrect);
+            questionNumber++;
         }
-        guiAnswers.setAnswers(cards[questionNumber].getBack (), incorrect);
-        questionNumber++;
 	}
 	
 	// Update is called once per frame
@@ -131,7 +143,7 @@ public class GameController : MonoBehaviour {
     void shuffleDeck() {
         for (int i = 0; i < totalScore; i++) {
             Card temp = cards[i];
-            int r = Random.Range(0, totalScore);
+            int r = UnityEngine.Random.Range(0, totalScore);
             cards[i] = cards[r];
             cards[r] = temp;
         }

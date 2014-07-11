@@ -112,10 +112,10 @@ public class Scorekeeper : MonoBehaviour {
         if (string.Equals(avatar, "shizuku")){
             appModel.setExpression("default");
             if (percentage == 0) {
-                appModel.startMotion("overwhelmed", 0, LAppDefine.PRIORITY_NORMAL);
+                appModel.startMotion("0 percent", 0, LAppDefine.PRIORITY_NORMAL);
                 StartCoroutine(displayReaction(5f));
             } else if (percentage >= 25) {
-              appModel.startMotion("sad", 0, LAppDefine.PRIORITY_NORMAL);
+              appModel.startMotion("disappointed", 0, LAppDefine.PRIORITY_NORMAL);
               StartCoroutine(displayReaction(4f));
             } else { 
               appModel.startMotion("angry", 0, LAppDefine.PRIORITY_NORMAL);

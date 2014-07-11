@@ -90,7 +90,7 @@ public class SettingsManager : MonoBehaviour {
         buttonStyle.fontSize = Screen.height / 30;
         string name = Path.GetFileName(path);
 
-        //GUI.Label(settingsLabel, "settings:", style);
+        GUI.Label(settingsLabel, "Settings", style);
         GUI.Label(shuffleLabel, "shuffle cards", style);
         GUI.Label(flipLabel, "flip cards", style);
         GUI.Label(chooseLabel, "choose character:", style);
@@ -132,7 +132,6 @@ public class SettingsManager : MonoBehaviour {
 				Debug.Log ("there is a problem");
 			}
 
-            string avatar = PlayerPrefs.GetString ("avatar");
             if (isEthan) Application.LoadLevel ("ethan");
             if (isShizuku) Application.LoadLevel ("shizuku");
 		}
